@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- OPAL ONE Signet — Gem facets -->
+  <polygon points="16,2 28,10 28,22 16,30 4,22 4,10" fill="#25262a" stroke="#25262a" stroke-width="0"/>
+  <polygon points="16,2 28,10 16,14" fill="#3ac7a0" opacity="0.9"/>
+  <polygon points="28,10 28,22 16,14" fill="#79ecb8" opacity="0.85"/>
+  <polygon points="28,22 16,30 16,14" fill="#c8befa" opacity="0.9"/>
+  <polygon points="16,30 4,22 16,14" fill="#a89ef5" opacity="0.85"/>
+  <polygon points="4,22 4,10 16,14" fill="#3ac7a0" opacity="0.8"/>
+  <polygon points="4,10 16,2 16,14" fill="#79ecb8" opacity="0.75"/>
+</svg>

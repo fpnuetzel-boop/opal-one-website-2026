@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346 72" fill="none">
+  <!-- Signet mark (gem shape) -->
+  <polygon points="36,6 54,18 54,36 36,48 18,36 18,18" fill="#25262a"/>
+  <polygon points="36,6 54,18 36,26" fill="#25262a" opacity="0.7"/>
+  <polygon points="54,18 54,36 36,26" fill="#25262a" opacity="0.85"/>
+  <polygon points="54,36 36,48 36,26" fill="#25262a" opacity="0.6"/>
+  <polygon points="36,48 18,36 36,26" fill="#25262a" opacity="0.75"/>
+  <polygon points="18,36 18,18 36,26" fill="#25262a" opacity="0.55"/>
+  <polygon points="18,18 36,6 36,26" fill="#25262a" opacity="0.65"/>
+
+  <!-- Wordmark: opal one -->
+  <!-- o -->
+  <ellipse cx="82" cy="42" rx="8" ry="10" stroke="#25262a" stroke-width="2.5" fill="none"/>
+  <!-- p -->
+  <line x1="94" y1="32" x2="94" y2="56" stroke="#25262a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M94 32 Q94 32 104 35 Q108 38 108 42 Q108 46 104 49 Q100 52 94 52" stroke="#25262a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- a -->
+  <path d="M120 52 Q120 32 130 32 Q140 32 140 42 L140 52" stroke="#25262a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 44 L140 44" stroke="#25262a" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- l -->
+  <line x1="150" y1="26" x2="150" y2="52" stroke="#25262a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- space -->
+
+  <!-- o -->
+  <ellipse cx="180" cy="42" rx="8" ry="10" stroke="#25262a" stroke-width="2.5" fill="none"/>
+  <!-- n -->
+  <line x1="194" y1="32" x2="194" y2="52" stroke="#25262a" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M194 32 Q204 28 214 36 L214 52" stroke="#25262a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- e -->
+  <path d="M226 43 Q226 32 236 32 Q246 32 246 42 Q246 52 236 52 Q226 52 226 44" stroke="#25262a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <line x1="226" y1="43" x2="246" y2="43" stroke="#25262a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Divider -->
+  <line x1="270" y1="22" x2="270" y2="50" stroke="#25262a" stroke-width="1" opacity="0.3"/>
+
+  <!-- unleashed by opus (small) -->
+  <text x="280" y="35" font-family="Georgia, serif" font-size="7" fill="#25262a" opacity="0.45" letter-spacing="1">unleashed by</text>
+  <text x="280" y="47" font-family="Georgia, serif" font-size="9" fill="#25262a" opacity="0.55" letter-spacing="2">opus</text>
+</svg>
