@@ -1088,7 +1088,7 @@ main { display: block; }
 /* Werte depth */
 .wert-block {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: minmax(min-content, 320px) 1fr;
   gap: var(--sp-12);
   padding: var(--sp-10) 0;
   border-bottom: 1px solid var(--glass-border);
@@ -1104,9 +1104,10 @@ main { display: block; }
 }
 .wert-title {
   font-family: var(--font-heading);
-  font-size: clamp(var(--text-4xl), 4vw, var(--text-5xl));
+  font-size: clamp(var(--text-3xl), 3.5vw, var(--text-4xl));
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 .wert-text h4 {
   font-family: var(--font-heading);
