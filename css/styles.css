@@ -288,10 +288,17 @@ main { display: block; }
   padding-inline: var(--sp-6);
 }
 
+.nav-logo {
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
 .nav-logo img {
-  height: 38px;
+  height: 40px;
   width: auto;
   filter: brightness(0) invert(1);
+  overflow: visible;
+  display: block;
 }
 
 .nav-links {
@@ -1237,16 +1244,20 @@ main { display: block; }
 }
 .leistung-big-num {
   position: absolute;
-  bottom: var(--sp-6); right: var(--sp-6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-heading);
-  font-size: 7rem;
+  font-size: clamp(6rem, 10vw, 9rem);
   font-weight: 300;
   line-height: 1;
   background: var(--gradient-opal);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  opacity: 0.1;
+  opacity: 0.12;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .leistung-label {
