@@ -78,13 +78,163 @@
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
+  /* ── Orbital Services Timeline ──────────────────────────── */
+  (function initOrbital() {
+    const wrap = document.getElementById('orbital-services');
+    if (!wrap) return;
+
+    const ICON = {
+      person: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+      team:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+      search: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+      star:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    };
+
+    const SERVICES = [
+      { id: 1, label: '01', title: 'Kulturcoaching',            icon: ICON.person, relatedIds: [2, 3], text: '1:1-Begleitung für Führungskräfte. Persönliche Reflexion, Haltungsarbeit und das Erkennen eigener Kommunikationsmuster.' },
+      { id: 2, label: '02', title: 'Teamtransformation',        icon: ICON.team,   relatedIds: [1, 3], text: 'Kollektive Kulturarbeit mit Gruppen. Workshops, Konfliktarbeit und die gemeinsame Entwicklung gelebter Werte.' },
+      { id: 3, label: '03', title: 'Organisations-Diagnose',    icon: ICON.search, relatedIds: [1, 2, 4], text: 'Analyse von Strukturen, Kommunikationsflüssen und Entscheidungswegen. Klarheit als Ausgangspunkt für echte Veränderung.' },
+      { id: 4, label: '04', title: 'Führungskräfte-Entwicklung',icon: ICON.star,   relatedIds: [2, 3], text: 'Purpose-orientiertes Leadership. Selbstorganisation fördern und Vertrauen als wirksamstes Führungsinstrument etablieren.' },
+    ];
+
+    wrap.innerHTML = `
+      <div class="orb-stage" id="orb-stage">
+        <div class="orb-ring" aria-hidden="true"></div>
+        <div class="orb-center" aria-hidden="true">
+          <div class="orb-center-ring orb-ring-1"></div>
+          <div class="orb-center-ring orb-ring-2"></div>
+          <div class="orb-center-inner"></div>
+        </div>
+        ${SERVICES.map(s => `
+          <div class="orb-node" id="orb-node-${s.id}" data-id="${s.id}" role="listitem" tabindex="0" aria-label="${s.title}">
+            <div class="orb-node-glow"></div>
+            <div class="orb-node-btn">${s.icon}</div>
+            <span class="orb-node-title">${s.title}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="orb-detail" id="orb-detail" aria-live="polite"></div>
+    `;
+
+    const stage      = document.getElementById('orb-stage');
+    const detailEl   = document.getElementById('orb-detail');
+    const nodeEls    = SERVICES.map(s => ({ ...s, el: document.getElementById(`orb-node-${s.id}`) }));
+
+    let angle      = 0;
+    let autoRotate = true;
+    let activeId   = null;
+    let lastTs     = 0;
+
+    function radius() {
+      return window.innerWidth < 480 ? 115 : window.innerWidth < 768 ? 150 : 190;
+    }
+
+    function calcPos(idx, total, rot) {
+      const a = ((idx / total) * 360 + rot) % 360;
+      const r = (a * Math.PI) / 180;
+      const R = radius();
+      return {
+        x:       R * Math.cos(r),
+        y:       R * Math.sin(r),
+        zIndex:  Math.round(100 + 50 * Math.cos(r)),
+        opacity: Math.max(0.4, Math.min(1, 0.4 + 0.6 * ((1 + Math.sin(r)) / 2))),
+      };
+    }
+
+    function render() {
+      nodeEls.forEach((node, i) => {
+        const p = calcPos(i, nodeEls.length, angle);
+        node.el.style.transform = `translate(${p.x - 22}px, ${p.y - 22}px)`;
+        if (activeId === null) {
+          node.el.style.zIndex  = p.zIndex;
+          node.el.style.opacity = p.opacity;
+        } else if (activeId === node.id) {
+          node.el.style.zIndex  = 200;
+        }
+      });
+    }
+
+    function tick(ts) {
+      if (autoRotate && ts - lastTs > 40) {
+        angle  = (angle + 0.28) % 360;
+        lastTs = ts;
+        render();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function showDetail(id) {
+      const s       = SERVICES.find(x => x.id === id);
+      const related = SERVICES.filter(x => s.relatedIds.includes(x.id));
+      detailEl.innerHTML = `
+        <div class="orb-detail-card">
+          <div class="orb-detail-header">
+            <span class="orb-detail-label">${s.label} / Leistung</span>
+            <button class="orb-detail-close" id="orb-close" aria-label="Schließen">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <h3 class="orb-detail-title">${s.title}</h3>
+          <p class="orb-detail-text">${s.text}</p>
+          <div class="orb-detail-footer">
+            ${related.length ? `
+              <div class="orb-related-wrap">
+                <span class="orb-related-label">Verbunden:</span>
+                ${related.map(r => `<button class="orb-related-btn" data-id="${r.id}">${r.label} ${r.title}</button>`).join('')}
+              </div>` : '<span></span>'}
+            <a href="leistungen.html" class="orb-detail-link">
+              Im Detail &nbsp;→
+            </a>
+          </div>
+        </div>`;
+      detailEl.classList.add('is-open');
+
+      document.getElementById('orb-close').addEventListener('click', e => { e.stopPropagation(); deselect(); });
+      detailEl.querySelectorAll('.orb-related-btn').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); setActive(parseInt(btn.dataset.id)); });
+      });
+    }
+
+    function setActive(id) {
+      if (activeId === id) { deselect(); return; }
+      activeId   = id;
+      autoRotate = false;
+      const s    = SERVICES.find(x => x.id === id);
+
+      nodeEls.forEach(n => {
+        n.el.classList.remove('is-active', 'is-related', 'is-dim');
+        if (n.id === id)                   { n.el.classList.add('is-active');  n.el.style.opacity = '1'; }
+        else if (s.relatedIds.includes(n.id)) { n.el.classList.add('is-related'); n.el.style.opacity = '0.85'; }
+        else                               { n.el.classList.add('is-dim');    n.el.style.opacity = '0.28'; }
+      });
+      showDetail(id);
+    }
+
+    function deselect() {
+      activeId   = null;
+      autoRotate = true;
+      nodeEls.forEach(n => { n.el.classList.remove('is-active', 'is-related', 'is-dim'); n.el.style.opacity = ''; });
+      detailEl.classList.remove('is-open');
+      setTimeout(() => { if (!detailEl.classList.contains('is-open')) detailEl.innerHTML = ''; }, 450);
+    }
+
+    nodeEls.forEach(node => {
+      node.el.addEventListener('click', e => { e.stopPropagation(); setActive(node.id); });
+      node.el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(node.id); } });
+    });
+    stage.addEventListener('click', () => { if (activeId !== null) deselect(); });
+
+    render();
+    requestAnimationFrame(tick);
+  })();
+
   /* ── Contact form (Formspree) ────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
   const formSuccess  = document.getElementById('form-success');
 
   // Replace FORMSPREE_ID below with your Formspree form ID (e.g. "xabcdefg")
   // Get it at https://formspree.io → New Form → copy the ID from the endpoint URL
-  const FORMSPREE_ID = 'FORMSPREE_ID';
+  const FORMSPREE_ID = 'xlgvbodo';
 
   if (contactForm) {
     contactForm.addEventListener('submit', async e => {
