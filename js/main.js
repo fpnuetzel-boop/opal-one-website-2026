@@ -78,25 +78,44 @@
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
-  /* ── Contact form ────────────────────────────────────────── */
+  /* ── Contact form (Formspree) ────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
   const formSuccess  = document.getElementById('form-success');
 
+  // Replace FORMSPREE_ID below with your Formspree form ID (e.g. "xabcdefg")
+  // Get it at https://formspree.io → New Form → copy the ID from the endpoint URL
+  const FORMSPREE_ID = 'FORMSPREE_ID';
+
   if (contactForm) {
-    contactForm.addEventListener('submit', e => {
+    contactForm.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = contactForm.querySelector('[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Wird gesendet …';
 
-      // Simulate async send (replace with real fetch/Netlify/backend)
-      setTimeout(() => {
-        contactForm.style.display = 'none';
-        if (formSuccess) {
-          formSuccess.classList.add('visible');
-          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try {
+        const response = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          if (formSuccess) {
+            formSuccess.classList.add('visible');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Nachricht senden';
+          alert('Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an f.p.nuetzel@gmail.com');
         }
-      }, 900);
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Nachricht senden';
+        alert('Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung oder schreiben Sie direkt an f.p.nuetzel@gmail.com');
+      }
     });
   }
 
