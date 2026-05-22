@@ -1622,6 +1622,118 @@ main { display: block; }
 }
 
 /* ============================================================
+   OPAL VERLAUF — Overlay
+   ============================================================ */
+.verlauf-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('../opal-verlauf.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.09;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-bg .verlauf-overlay { z-index: 0; }
+
+/* ============================================================
+   OPAL ICONS — Sprite (1875×1880px, 5×5 grid, 76px display)
+   ============================================================ */
+.opal-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url('../icons/23-03_Opal-Icons-Korr1.png');
+  background-size: 380px 381px;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+/* col×76, row×76.2  */
+.icon-eye         { background-position:  -76px    0;       } /* (1,0) */
+.icon-crown       { background-position:    0    -228.6px;  } /* (0,3) */
+.icon-two-people  { background-position: -228px  -228.6px;  } /* (3,3) */
+.icon-lotus       { background-position: -152px  -304.8px;  } /* (2,4) */
+.icon-open-head   { background-position:  -76px  -152.4px;  } /* (1,2) */
+.icon-plants-hand { background-position:  -76px  -228.6px;  } /* (1,3) */
+.icon-butterfly   { background-position: -152px  -228.6px;  } /* (2,3) */
+
+/* Small variant for impact-tiles (64px) */
+.opal-icon.sz-sm {
+  width: 64px;
+  height: 64px;
+  background-size: 320px 321px;
+}
+.sz-sm.icon-eye         { background-position:  -64px    0;      }
+.sz-sm.icon-crown       { background-position:    0    -192.6px; }
+.sz-sm.icon-two-people  { background-position: -192px  -192.6px; }
+.sz-sm.icon-lotus       { background-position: -128px  -256.8px; }
+.sz-sm.icon-open-head   { background-position:  -64px  -128.4px; }
+.sz-sm.icon-plants-hand { background-position:  -64px  -192.6px; }
+.sz-sm.icon-butterfly   { background-position: -128px  -192.6px; }
+
+/* ============================================================
+   EDELSTEINE — Real Stone Images
+   ============================================================ */
+.opal-stone-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 380px;
+}
+.opal-stone-main {
+  max-height: 280px;
+  width: auto;
+  filter: drop-shadow(0 24px 64px rgba(121,236,184,0.3))
+          drop-shadow(0 0 120px rgba(200,190,250,0.2));
+  animation: float 5s ease-in-out infinite;
+}
+.opal-prop-stone {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  margin-top: 2px;
+}
+.opal-prop {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+.opal-prop-body { flex: 1; }
+
+/* ============================================================
+   BRAND MOCKUPS
+   ============================================================ */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  margin-top: var(--sp-10);
+}
+.mockup-item {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+}
+.mockup-item img {
+  width: 100%;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.mockup-item:hover img { transform: scale(1.04); }
+
+@media (max-width: 768px) {
+  .opal-stone-wrap { height: 240px; }
+  .opal-stone-main { max-height: 180px; }
+  .mockup-grid     { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    ORBITAL SERVICES TIMELINE
    ============================================================ */
 .orb-wrap { margin-top: var(--sp-12); }
