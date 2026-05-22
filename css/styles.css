@@ -1616,6 +1616,26 @@ main { display: block; }
 }
 .form-success p { color: var(--text-secondary); }
 
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-wrap { margin-top: var(--sp-10); max-width: 720px; }
+.faq-item { border-bottom: 1px solid var(--glass-border); padding: var(--sp-5) 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-3);
+  line-height: 1.3;
+}
+.faq-a {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
 /* Closing statement */
 .closing-statement {
   text-align: center;
