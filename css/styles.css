@@ -1243,6 +1243,16 @@ main { display: block; }
   color: var(--jade);
   opacity: 0.65;
 }
+/* Opal-Icon in Leistungs-Ring (110px) */
+.leistung-visual-inner .opal-icon {
+  width: 110px;
+  height: 110px;
+  background-size: 550px 551px;
+}
+.leistung-visual-inner .icon-lotus       { background-position: -220px -440.8px; }
+.leistung-visual-inner .icon-two-people  { background-position: -330px -330.6px; }
+.leistung-visual-inner .icon-eye         { background-position: -110px 0; }
+.leistung-visual-inner .icon-crown       { background-position: 0 -330.6px; }
 .leistung-big-num {
   position: absolute;
   top: 50%;
@@ -1412,8 +1422,10 @@ main { display: block; }
   background: rgba(121,236,184,0.03);
 }
 .impact-tile-icon {
-  width: 32px; height: 32px;
-  margin: 0 auto var(--sp-3);
+  margin: 0 auto var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--jade);
 }
 .impact-tile h4 {
@@ -1659,19 +1671,19 @@ main { display: block; }
 .icon-plants-hand { background-position:  -76px  -228.6px;  } /* (1,3) */
 .icon-butterfly   { background-position: -152px  -228.6px;  } /* (2,3) */
 
-/* Small variant for impact-tiles (64px) */
+/* Impact-tile variant (88px — passt gut in die großen Kreise) */
 .opal-icon.sz-sm {
-  width: 64px;
-  height: 64px;
-  background-size: 320px 321px;
+  width: 88px;
+  height: 88px;
+  background-size: 440px 441px;
 }
-.sz-sm.icon-eye         { background-position:  -64px    0;      }
-.sz-sm.icon-crown       { background-position:    0    -192.6px; }
-.sz-sm.icon-two-people  { background-position: -192px  -192.6px; }
-.sz-sm.icon-lotus       { background-position: -128px  -256.8px; }
-.sz-sm.icon-open-head   { background-position:  -64px  -128.4px; }
-.sz-sm.icon-plants-hand { background-position:  -64px  -192.6px; }
-.sz-sm.icon-butterfly   { background-position: -128px  -192.6px; }
+.sz-sm.icon-eye         { background-position:  -88px    0;      }
+.sz-sm.icon-crown       { background-position:    0    -264.6px; }
+.sz-sm.icon-two-people  { background-position: -264px  -264.6px; }
+.sz-sm.icon-lotus       { background-position: -176px  -352.8px; }
+.sz-sm.icon-open-head   { background-position:  -88px  -176.4px; }
+.sz-sm.icon-plants-hand { background-position:  -88px  -264.6px; }
+.sz-sm.icon-butterfly   { background-position: -176px  -264.6px; }
 
 /* ============================================================
    EDELSTEINE — Real Stone Images
