@@ -470,6 +470,28 @@ main { display: block; }
   font-size: var(--text-xs);
   color: var(--text-muted);
 }
+.footer-social {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border-hi);
+  color: var(--text-secondary);
+  transition: color var(--dur-fast), border-color var(--dur-fast), background var(--dur-fast);
+}
+.footer-social a:hover {
+  color: var(--jade);
+  border-color: var(--jade);
+  background: rgba(42,199,140,0.08);
+}
+.footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
 /* ============================================================
    HERO — HOME PAGE
