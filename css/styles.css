@@ -270,15 +270,15 @@ main { display: block; }
   gap: 10px;
   height: var(--banner-h);
   padding: 0 var(--sp-4);
-  background: linear-gradient(90deg, rgba(42,199,140,0.13) 0%, rgba(139,92,246,0.11) 100%);
-  border-bottom: 1px solid rgba(42,199,140,0.22);
+  background: linear-gradient(90deg, #1a3d32 0%, #1e1a2e 100%);
+  border-bottom: 1px solid rgba(42,199,140,0.3);
   color: var(--text-secondary);
   font-size: var(--text-sm);
   text-decoration: none;
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .li-banner:hover {
-  background: linear-gradient(90deg, rgba(42,199,140,0.22) 0%, rgba(139,92,246,0.18) 100%);
+  background: linear-gradient(90deg, #1f4a3c 0%, #251f38 100%);
   color: #fff;
 }
 .li-banner svg:first-child { width: 15px; height: 15px; flex-shrink: 0; }
