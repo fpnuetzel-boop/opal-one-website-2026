@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leistungen: Kulturcoaching & Persönliches Zukunftsbild | OPAL ONE</title>
-  <meta name="description" content="Kulturcoaching und persönliches Zukunftsbild. Zwei Formate, ein Kern: echte menschliche Begegnung. Direkt, vertraulich, ohne Unternehmenskontext.">
+  <title>Leistungen: Kulturcoaching, Zukunftsbild & Canvas | OPAL ONE</title>
+  <meta name="description" content="Drei Formate, ein Kern: Kulturcoaching, Persönliches Zukunftsbild und Zukunftsbild Canvas. Echte menschliche Begegnung — direkt, vertraulich, ohne Unternehmenskontext.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -15,6 +15,35 @@
   </script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="canonical" href="https://opal-one.de/leistungen.html">
+  <style>
+    .zb-canvas { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-6) 0 var(--sp-5); }
+    .zb-row { display: flex; gap: var(--sp-3); }
+    .zb-box {
+      flex: 1; background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--r-md); padding: var(--sp-4);
+    }
+    .zb-goal {
+      flex: 1; background: rgba(121,236,184,0.07); border: 1px solid rgba(121,236,184,0.2);
+      border-radius: var(--r-md); padding: var(--sp-4);
+    }
+    .zb-vision {
+      flex: 1; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3);
+      border-radius: var(--r-md); padding: var(--sp-4);
+    }
+    .zb-label {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; margin-bottom: var(--sp-2);
+    }
+    .zb-box .zb-label { color: var(--text-muted); }
+    .zb-goal .zb-label { color: var(--jade); }
+    .zb-vision .zb-label { color: var(--amethyst); }
+    .zb-box p, .zb-goal p, .zb-vision p {
+      font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin: 0;
+    }
+    @media (max-width: 640px) {
+      .zb-row { flex-direction: column; }
+    }
+  </style>
   <link rel="sitemap" type="application/xml" href="https://opal-one.de/sitemap.xml">
 </head>
 <body>
@@ -120,6 +149,66 @@
             <div class="leistung-visual-ring">
               <div class="leistung-visual-inner"><div class="opal-icon icon-lotus"></div></div>
             </div>
+          </div>
+        </article>
+
+        <!-- 03 Zukunftsbild Canvas -->
+        <article class="leistung-block fade-in-up" aria-labelledby="l3-heading">
+          <div class="leistung-content" style="max-width:100%;">
+            <p class="leistung-label">03 / Zukunftsbild Canvas</p>
+            <h2 id="l3-heading">
+              Zukunftsbild Canvas:<br>Struktur für deine Vision
+            </h2>
+            <p>
+              Ein Zukunftsbild entsteht nicht im Nebel — es braucht einen Rahmen. Das Zukunftsbild Canvas ist ein strukturiertes Workshop-Format: Wir arbeiten gemeinsam vier Felder durch, verdichten sie zu zwei konkreten Langzeitzielen und formulieren am Ende eine Vision, die präzise genug ist, um daran zu messen.
+            </p>
+            <p>
+              Das Format eignet sich für Einzelpersonen genauso wie für kleine Gründerteams. Es kombiniert die Tiefe des persönlichen Gesprächs mit der Klarheit einer strukturierten Methode.
+            </p>
+
+            <div class="zb-canvas" role="img" aria-label="Zukunftsbild Canvas Struktur">
+              <div class="zb-row">
+                <div class="zb-box">
+                  <p class="zb-label">Trends &amp; Entwicklungen</p>
+                  <p>3–5 zentrale Trends und die Chancen &amp; Risiken, die sich daraus ergeben</p>
+                </div>
+                <div class="zb-box">
+                  <p class="zb-label">Kundenbedürfnisse &amp; Zielgruppen</p>
+                  <p>Hauptzielgruppen und ihre spezifischen Bedürfnisse und Erwartungen</p>
+                </div>
+                <div class="zb-box">
+                  <p class="zb-label">Chancen &amp; Risiken</p>
+                  <p>Interne Stärken &amp; Schwächen, konkrete Handlungsfelder</p>
+                </div>
+                <div class="zb-box">
+                  <p class="zb-label">Werte &amp; Unternehmensrolle</p>
+                  <p>Kernwerte und die gewünschte Rolle im Zukunftsbild</p>
+                </div>
+              </div>
+              <div class="zb-row">
+                <div class="zb-goal">
+                  <p class="zb-label">Long-term Goal I</p>
+                  <p>1 konkretes Ziel für die nächsten 10 Jahre</p>
+                </div>
+                <div class="zb-goal">
+                  <p class="zb-label">Long-term Goal II</p>
+                  <p>1 konkretes Ziel für die nächsten 10 Jahre</p>
+                </div>
+              </div>
+              <div class="zb-row">
+                <div class="zb-vision">
+                  <p class="zb-label">Vision</p>
+                  <p>Kurze, prägnante Formulierung der Zukunftsvision — max. 2 Sätze</p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="leistung-outcomes" aria-label="Ergebnisse Zukunftsbild Canvas">
+              <li>Ein vollständig ausgefülltes Canvas als greifbares Ergebnis</li>
+              <li>Zwei Long-term Goals, die deine Richtung für die nächsten 10 Jahre definieren</li>
+              <li>Eine präzise Vision — kurz genug, um sie auswendig zu wissen</li>
+            </ul>
+            <a href="kontakt.html" class="btn btn-primary">Canvas anfragen</a>
           </div>
         </article>
 

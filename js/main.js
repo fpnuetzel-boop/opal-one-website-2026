@@ -84,17 +84,15 @@
     if (!wrap) return;
 
     const ICON = {
-      person: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
-      team:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-      search: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
-      star:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+      person:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+      compass: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+      canvas:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="9" x2="12" y2="21"/></svg>`,
     };
 
     const SERVICES = [
-      { id: 1, label: '01', title: 'Kulturcoaching',            icon: ICON.person, relatedIds: [2, 3], text: '1:1-Begleitung für Führungskräfte. Persönliche Reflexion, Haltungsarbeit und das Erkennen eigener Kommunikationsmuster.' },
-      { id: 2, label: '02', title: 'Teamtransformation',        icon: ICON.team,   relatedIds: [1, 3], text: 'Kollektive Kulturarbeit mit Gruppen. Workshops, Konfliktarbeit und die gemeinsame Entwicklung gelebter Werte.' },
-      { id: 3, label: '03', title: 'Organisations-Diagnose',    icon: ICON.search, relatedIds: [1, 2, 4], text: 'Analyse von Strukturen, Kommunikationsflüssen und Entscheidungswegen. Klarheit als Ausgangspunkt für echte Veränderung.' },
-      { id: 4, label: '04', title: 'Führungskräfte-Entwicklung',icon: ICON.star,   relatedIds: [2, 3], text: 'Purpose-orientiertes Leadership. Selbstorganisation fördern und Vertrauen als wirksamstes Führungsinstrument etablieren.' },
+      { id: 1, label: '01', title: 'Kulturcoaching',          icon: ICON.person,  relatedIds: [2, 3], text: '1:1-Begleitung für Menschen. Persönliche Reflexion, Haltungsarbeit und das Erkennen eigener Kommunikationsmuster. Direkt, ohne Unternehmenskontext.' },
+      { id: 2, label: '02', title: 'Persönliches Zukunftsbild', icon: ICON.compass, relatedIds: [1, 3], text: 'Wer bist du jenseits deiner Rolle? Im 1:1-Gespräch entwickeln wir ein klares Bild deiner Stärken, Werte und Richtung — als Mensch, nicht als Funktion.' },
+      { id: 3, label: '03', title: 'Zukunftsbild Canvas',     icon: ICON.canvas,  relatedIds: [1, 2], text: 'Ein strukturiertes Workshop-Format: Trends, Bedürfnisse, Risiken und deine Rolle — zusammengeführt in zwei Langzeitzielen und einer klaren Vision.' },
     ];
 
     wrap.innerHTML = `
